@@ -1,3 +1,5 @@
+
+
 -- ui lib
 local library = { 
 	flags = { }, 
@@ -46,11 +48,11 @@ library.theme = {
 if library.theme.cursor and Drawing then
     local success = pcall(function() 
         library.cursor = Drawing.new("Image")
-        library.cursor.Data = crypt.base64.decode("iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABd0lEQVR4nJ2Uu07DQBBFz9hOYkgDBRIgSkR4FohHCygIUVEgQKKhpeU3EZ/AT4AAKZCQS5GxsmycxMpKLvZ69/rM3lkbMw5JKVAD+mb2U+g2g5EBmJkCrQHMAZbNAFdzkO9A2wWOgeYshkk4kTQHXAAPwGIlQ0kJkAI9M+u4lgLbwB5wCWwCVCVMgRzoAF3XloFb4Lwwq0Jm/iSSMtfqkhYkXUt61nD0JL1NI6wD5mX2XdsB2sAhsBV+n+h8ywhzSXkwzyQ9SXqV9BHRSVJ/hHBCAFtACzgD1oMtX06WM6YPywJYAe6AU2AjWt9g0Jf/L8mUAG4kvUQlfkrqKhohYQ1IxgRwzP/W0AiRj9AwvgEZcAI8eslNf/Xr+9Iy00xSZmZhAInTtPzMxgYwjrAO9AJtiWEArWh9eQCRoTlV7mW1gStgPyix42ZTr2rGoDUawJFTHZSQJZOoygznGfzT7oE1nxd0RV9WMzSzon1WI7J3N2tWNQP4A5SK30ez9aZTAAAAAElFTkSuQmCC")
+        library.cursor.Data = crypt.base64.decode("iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABASURBVChTldA7EgAgCENB8P53VuKo44egviYUW6HZkktqpXbTgLAh7AhROCPkwh2hA3oILZAhNGCEai9//EikAMO1CChHCrprAAAAAElFTkSuQmCC")
         library.cursor.Size = Vector2.new(16, 16)
         library.cursor.Visible = uis.MouseEnabled
         library.cursor.Rounding = 0
-        library.cursor.Position = Vector2.new(mouse.X - 32, mouse.Y + 48)
+        library.cursor.Position = Vector2.new(mouse.X - 16, mouse.Y + 32) -- // offsets arent perfect
     end)
     if success and library.cursor then
         uis.InputChanged:Connect(function(input)
